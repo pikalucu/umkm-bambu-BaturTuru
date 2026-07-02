@@ -250,8 +250,11 @@ function applyFilter() {
   // Close the panel after applying
   const panel = document.getElementById('filterPanel');
   const btn = document.getElementById('btnFilterToggle');
+  const backdrop = document.getElementById('filterBackdrop');
   if (panel) panel.classList.remove('active');
   if (btn) btn.classList.remove('active');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 // ---- Reset Filter ----
@@ -270,9 +273,26 @@ function resetFilter() {
 // ---- Filter by Category (legacy, kept for compatibility) ----
 function filterProducts(cat, el) {
   currentFilter = cat;
+  
+  // Sync the pills inside the filter panel to match
+  document.querySelectorAll('#categoryPillsGroup .cat-pill').forEach(b => {
+    if (b.getAttribute('data-cat') === cat) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+  pendingFilter = cat;
+  
   document.querySelectorAll('.cat-pill').forEach(c => c.classList.remove('active'));
   if (el) el.classList.add('active');
   renderProducts();
+  
+  // Smooth scroll to product grid
+  const prodSection = document.getElementById('produk');
+  if (prodSection) {
+    prodSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 // ---- Search Handler ----
@@ -382,21 +402,7 @@ function showToast(msg, icon = '✅') {
   setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// ---- Contact Form ----
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const nama = document.getElementById('nama').value;
-  const telepon = document.getElementById('telepon').value;
-  const produkMinat = document.getElementById('produk-minat').value;
-  const pesan = document.getElementById('pesan').value;
 
-  const msg = encodeURIComponent(
-    `Halo PringBatur! 😊\n\nNama: ${nama}\nTelepon: ${telepon}\nMinat Produk: ${produkMinat || 'Tidak disebutkan'}\n\nPesan:\n${pesan}`
-  );
-  window.open(`https://wa.me/6285213168134?text=${msg}`, '_blank');
-  showToast('Pesan dikirim via WhatsApp! 🎉', '✅');
-  e.target.reset();
-}
 
 // ---- Newsletter ----
 function subscribeNewsletter() {
@@ -421,6 +427,21 @@ window.addEventListener('scroll', () => {
   const floatTop = document.getElementById('floatTop');
   if (window.scrollY > 400) floatTop.classList.add('visible');
   else floatTop.classList.remove('visible');
+  
+  // Shift floating buttons up when footer is visible to prevent overlap
+  const floatingBtns = document.querySelector('.floating-buttons');
+  if (floatingBtns) {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      if (footerRect.top < window.innerHeight) {
+        const offset = window.innerHeight - footerRect.top;
+        floatingBtns.style.transform = `translateY(-${offset}px)`;
+      } else {
+        floatingBtns.style.transform = 'translateY(0)';
+      }
+    }
+  }
 });
 
 // ---- Mobile Menu ----
@@ -428,10 +449,19 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+mobileMenuClose.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+});
 
-function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ---- Scroll Reveal ----
 function observeReveal() {
@@ -693,14 +723,21 @@ function toggleFilterPanel(e) {
   if (e) e.stopPropagation();
   const panel = document.getElementById('filterPanel');
   const btn = document.getElementById('btnFilterToggle');
+  const backdrop = document.getElementById('filterBackdrop');
   if (panel && btn) {
     const isOpen = panel.classList.contains('active');
     if (isOpen) {
       panel.classList.remove('active');
       btn.classList.remove('active');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.style.overflow = '';
     } else {
       panel.classList.add('active');
       btn.classList.add('active');
+      if (backdrop) backdrop.classList.add('active');
+      if (window.innerWidth <= 576) {
+        document.body.style.overflow = 'hidden';
+      }
     }
   }
 }
@@ -710,8 +747,11 @@ document.addEventListener('click', function (e) {
   const anchor = document.getElementById('filterDropdownAnchor');
   const panel = document.getElementById('filterPanel');
   const btn = document.getElementById('btnFilterToggle');
-  if (anchor && !anchor.contains(e.target)) {
+  const backdrop = document.getElementById('filterBackdrop');
+  if (anchor && !anchor.contains(e.target) && backdrop && !backdrop.contains(e.target)) {
     if (panel) panel.classList.remove('active');
     if (btn) btn.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
   }
 });

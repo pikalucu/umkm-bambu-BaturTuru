@@ -37,6 +37,9 @@
   <span class="toast-icon">✅</span>
   <span id="toastMsg">Berhasil ditambahkan ke wishlist!</span>
 </div>
+<!-- Filter Backdrop -->
+<div class="filter-backdrop" id="filterBackdrop" onclick="toggleFilterPanel(event)"></div>
+
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Tutup Menu">
@@ -168,7 +171,9 @@
 
   <!-- Announcement Bar -->
   <div class="announce-bar">
-    🎉 Gratis ongkir untuk pembelian di atas Rp300.000 &nbsp;|&nbsp; Pesan custom? <a href="https://wa.me/6285213168134?text=Saya%20ingin%20memesan%20produk%20custom%20PringBatur" target="_blank">Hubungi kami</a> &nbsp;|&nbsp; 🌿 100% Bahan Alami Ramah Lingkungan
+    <div class="announce-bar-content">
+      🎉 Gratis ongkir untuk pembelian di atas Rp300.000 &nbsp;|&nbsp; Pesan custom? <a href="https://wa.me/6285213168134?text=Saya%20ingin%20memesan%20produk%20custom%20PringBatur" target="_blank">Hubungi kami</a> &nbsp;|&nbsp; 🌿 100% Bahan Alami Ramah Lingkungan
+    </div>
   </div>
 </section>
 
@@ -445,12 +450,10 @@
     <div class="text-center reveal">
       <span class="section-tag">Hubungi Kami</span>
       <h2 class="section-title">Mari Terhubung</h2>
-      <p class="section-subtitle">Ada pertanyaan atau ingin memesan? Kami siap membantu Anda!</p>
+      <p class="section-subtitle" style="max-width: 660px; margin-left: auto; margin-right: auto;">Kami dengan senang hati melayani pertanyaan, konsultasi produk, atau pemesanan Anda melalui berbagai saluran komunikasi di bawah ini.</p>
     </div>
     <div class="contact-grid">
-      <div class="contact-info reveal">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Informasi Kontak</h3>
-        <p style="color:var(--text-light);font-size:0.88rem;line-height:1.7;">Kami dengan senang hati melayani pertanyaan, konsultasi produk, atau pemesanan Anda melalui berbagai saluran komunikasi di bawah ini.</p>
+      <div class="contact-info reveal" style="padding: 0;">
         <div class="contact-cards">
           <a href="https://wa.me/6285213168134" target="_blank" class="contact-card" id="contact-wa">
             <div class="contact-card-icon wa">
@@ -494,45 +497,7 @@
           </div>
         </div>
       </div>
-      <div class="contact-form-wrap reveal">
-        <h3>Kirim Pesan</h3>
-        <p>Isi form di bawah dan kami akan segera merespons dalam 1x24 jam.</p>
-        <form id="contactForm" onsubmit="handleFormSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nama">Nama Lengkap *</label>
-              <input type="text" id="nama" name="nama" placeholder="Nama Anda" required />
-            </div>
-            <div class="form-group">
-              <label for="telepon">No. Telepon/WA *</label>
-              <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="email@Anda.com" />
-          </div>
-          <div class="form-group">
-            <label for="produk-minat">Produk yang Diminati</label>
-            <select id="produk-minat" name="produk-minat">
-              <option value="">-- Pilih Kategori --</option>
-              <option value="perabot">Perabot (Kursi, Meja, Rak)</option>
-              <option value="dekorasi">Dekorasi (Lampu, Hiasan)</option>
-              <option value="peralatan">Peralatan (Nampan, Keranjang)</option>
-              <option value="aksesoris">Aksesoris (Tas, Gantungan)</option>
-              <option value="custom">Pesanan Custom</option>
-              <option value="lainnya">Lainnya</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="pesan">Pesan / Pertanyaan *</label>
-            <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan, pertanyaan, atau detail produk yang Anda inginkan..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;" id="btn-kirim-form">
-            📨 Kirim Pesan
-          </button>
-        </form>
-      </div>
+
     </div>
   </div>
 </section>
@@ -638,11 +603,11 @@
      ================================================ -->
 <div class="modal-overlay" id="productModal">
   <div class="modal-content" id="modalContent">
+    <button class="modal-close" onclick="closeModal()" id="btn-modal-close">✕</button>
     <div class="modal-img">
       <img id="modalImg" src="" alt="" />
     </div>
     <div class="modal-info">
-      <button class="modal-close" onclick="closeModal()" id="btn-modal-close">✕</button>
       <div class="modal-cat" id="modalCat"></div>
       <div class="modal-name" id="modalName"></div>
 
