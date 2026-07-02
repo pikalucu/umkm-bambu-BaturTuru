@@ -1642,17 +1642,15 @@ img { max-width: 100%; display: block; }
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 .contact-info { }
 
 .contact-cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 28px;
 }
@@ -2139,19 +2137,26 @@ footer {
   font-weight: 500;
   z-index: 9998;
   transform: translateX(120%);
-  transition: transform var(--transition);
+  transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
   display: flex;
   align-items: center;
   gap: 10px;
   box-shadow: var(--shadow-lg);
   font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.toast.show { transform: translateX(0); }
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
 .toast-icon { font-size: 1.1rem; }
 
 /* Filter Backdrop */
 .filter-backdrop {
+  display: none;
   position: fixed;
   inset: 0;
   background: rgba(14, 26, 10, 0.45);
@@ -2506,6 +2511,10 @@ body[data-reveal] .reveal-right.visible {
     visibility: visible;
     pointer-events: auto;
   }
+
+  .filter-backdrop {
+    display: block;
+  }
   
   /* Search & filter buttons grid alignment */
   .products-actions {
@@ -2528,6 +2537,11 @@ body[data-reveal] .reveal-right.visible {
   #btn-katalog {
     width: 100% !important;
     justify-content: center;
+  }
+  
+  /* Stack contact cards in a single column on mobile */
+  .contact-cards {
+    grid-template-columns: 1fr;
   }
   
   /* Toast center alignment */
