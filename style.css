@@ -1,5 +1,5 @@
 /* ============================
-   PringBatur - Main Stylesheet
+   Batur - Main Stylesheet
    ============================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -2437,8 +2437,8 @@ body[data-reveal] .reveal-right.visible {
   .product-card:hover .product-img-wrap img {
     transform: none !important;
   }
-  .product-card:hover .product-overlay {
-    bottom: -60px !important;
+  .product-overlay {
+    display: none !important;
   }
   
 
