@@ -2788,10 +2788,11 @@ body::before {
   scrollbar-width: none; /* Hide standard Firefox scrollbar */
   -ms-overflow-style: none; /* Hide IE/Edge scrollbar */
   perspective: 1000px; /* Enable 3D perspective */
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding: 20px 24px 30px 24px;
+  gap: 24px;
   position: relative !important;
   scroll-behavior: auto !important;
+  scroll-snap-type: x mandatory;
 }
 
 #galleryScroll::-webkit-scrollbar {
@@ -2815,8 +2816,9 @@ body::before {
   cursor: grab;
   border: 1px solid rgba(74, 62, 42, 0.06);
   transform-style: preserve-3d;
-  transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s;
+  transition: box-shadow 0.25s;
   will-change: transform;
+  scroll-snap-align: center;
 }
 
 .gallery-card:active {
@@ -2832,7 +2834,6 @@ body::before {
   height: 100%;
   object-fit: cover;
   transform: scale(1.22) translateX(var(--px, 0px));
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
 

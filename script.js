@@ -688,6 +688,10 @@ function initDragScroll() {
   let velX = 0;
   let momentumID;
 
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isTouchDragging = false;
+
   function disableSnap() {
     slider.style.scrollSnapType = 'none';
   }
@@ -696,6 +700,7 @@ function initDragScroll() {
     slider.style.scrollSnapType = 'x mandatory';
   }
 
+  // --- Mouse Events ---
   slider.addEventListener('mousedown', (e) => {
     isDown = true;
     slider.style.cursor = 'grabbing';
@@ -750,6 +755,72 @@ function initDragScroll() {
     }
     
     velX = diff; // track drag velocity without snap jumps
+  });
+
+  // --- Touch Events ---
+  slider.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.pageX;
+    touchStartY = touch.pageY;
+    isDown = true;
+    slider.isDragging = true;
+    isTouchDragging = false;
+    
+    slider.dragStartX = touch.pageX - slider.offsetLeft;
+    slider.dragStartScrollLeft = slider.scrollLeft;
+    
+    cancelAnimationFrame(momentumID);
+    disableSnap();
+  }, { passive: true });
+
+  slider.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const touch = e.touches[0];
+    
+    const deltaX = Math.abs(touch.pageX - touchStartX);
+    const deltaY = Math.abs(touch.pageY - touchStartY);
+    
+    // Determine drag direction (mostly horizontal and moved at least 8px)
+    if (!isTouchDragging && deltaX > deltaY && deltaX > 8) {
+      isTouchDragging = true;
+    }
+    
+    if (isTouchDragging) {
+      // Prevent browser from scrolling vertically when actively dragging the carousel
+      if (e.cancelable) e.preventDefault();
+      
+      const x = touch.pageX - slider.offsetLeft;
+      const walk = (x - slider.dragStartX) * 1.5; // drag speed multiplier
+      const prevScrollLeft = slider.scrollLeft;
+      slider.scrollLeft = slider.dragStartScrollLeft - walk;
+      
+      let diff = slider.scrollLeft - prevScrollLeft;
+      const setWidth = slider.infiniteSetWidth || 2408;
+      if (Math.abs(diff) > setWidth / 2) {
+        if (diff > 0) diff -= setWidth;
+        else diff += setWidth;
+      }
+      
+      velX = diff;
+    }
+  }, { passive: false });
+
+  slider.addEventListener('touchend', () => {
+    if (isDown) {
+      isDown = false;
+      slider.isDragging = false;
+      isTouchDragging = false;
+      beginMomentum();
+    }
+  });
+
+  slider.addEventListener('touchcancel', () => {
+    if (isDown) {
+      isDown = false;
+      slider.isDragging = false;
+      isTouchDragging = false;
+      beginMomentum();
+    }
   });
 
   // Inertia momentum loop
