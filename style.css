@@ -1633,6 +1633,13 @@ img { max-width: 100%; display: block; }
   margin-top: 28px;
 }
 
+#contact-loc {
+  grid-column: span 2;
+  justify-self: center;
+  width: 100%;
+  max-width: calc(50% - 8px);
+}
+
 .contact-card {
   display: flex;
   gap: 16px;
@@ -1763,11 +1770,25 @@ footer {
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
   padding-bottom: 50px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-brand .nav-logo {
+  justify-content: center;
 }
 
 .footer-brand .nav-logo-text h1 { color: white; }
@@ -1776,11 +1797,12 @@ footer {
 .footer-desc {
   font-size: 0.88rem;
   color: rgba(255,255,255,0.55);
-  margin: 16px 0 24px;
+  margin: 16px auto 24px;
   line-height: 1.75;
+  text-align: center;
 }
 
-.footer-socials { display: flex; gap: 10px; }
+.footer-socials { display: flex; gap: 10px; justify-content: center; }
 
 .social-btn {
   width: 40px; height: 40px;
@@ -2378,6 +2400,10 @@ body[data-reveal] .reveal-right.visible {
   .contact-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   
+  /* Hero adjustments for mobile */
+  .hero-scroll { display: none !important; }
+  .hero-content { padding-top: 100px !important; }
+  
   /* Mobile Modal styling (scrollable and responsive) */
   .modal-overlay {
     align-items: flex-start;
@@ -2391,6 +2417,13 @@ body[data-reveal] .reveal-right.visible {
     margin-bottom: 30px;
   }
   .modal-img { max-height: 240px; }
+  .modal-close {
+    width: 42px !important;
+    height: 42px !important;
+    top: 12px !important;
+    right: 12px !important;
+    font-size: 1.1rem !important;
+  }
   
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .form-row { grid-template-columns: 1fr; }
@@ -2517,6 +2550,10 @@ body[data-reveal] .reveal-right.visible {
   .contact-cards {
     grid-template-columns: 1fr;
   }
+  #contact-loc {
+    grid-column: span 1;
+    max-width: 100%;
+  }
   
   /* Toast center alignment */
   .toast {
@@ -2534,6 +2571,8 @@ body[data-reveal] .reveal-right.visible {
 }
 
 @media (max-width: 480px) {
+  .container { padding: 0 16px !important; }
+
   /* Keep 2 columns on small screens, reduce spacing */
   .products-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -2543,6 +2582,10 @@ body[data-reveal] .reveal-right.visible {
     padding: 10px !important;
   }
   .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Contact Cards Mobile Optimization */
+  .contact-card { padding: 14px 16px !important; gap: 12px !important; }
+  .contact-card-value { font-size: 0.85rem !important; }
   
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; justify-content: center; }
@@ -2731,8 +2774,10 @@ body::before {
    Parallax Horizontal Scroll Gallery Section
    ================================================ */
 #galeri {
+  padding: 90px 0;
   background: var(--white) !important;
   position: relative;
+  overflow: hidden;
 }
 
 #galleryScroll {
@@ -2745,6 +2790,8 @@ body::before {
   perspective: 1000px; /* Enable 3D perspective */
   padding-top: 20px;
   padding-bottom: 30px;
+  position: relative !important;
+  scroll-behavior: auto !important;
 }
 
 #galleryScroll::-webkit-scrollbar {

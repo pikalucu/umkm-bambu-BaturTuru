@@ -6,107 +6,94 @@
 const products = [
   {
     id: 1,
-    name: 'Kursi Bambu Minimalis',
-    category: 'perabot',
-    price: 320000,
-    image: 'images/kursi_bambu.png',
+    name: 'Box Tutup Mika',
+    category: 'dekorasi',
+    price: 30000,
+    image: 'images/BoxTutup_Mika.png',
     badge: 'Terlaris',
     rating: 4.9,
     reviews: 128,
-    desc: 'Kursi bambu dengan desain minimalis modern yang kokoh dan nyaman. Dibuat dari bambu pilihan yang telah diawetkan, cocok untuk penggunaan indoor maupun outdoor. Finishing natural memberi kesan hangat dan alami.',
-    specs: { Material: 'Bambu Petung', Dimensi: '60x55x85 cm', Berat: '4.5 kg', Finishing: 'Natural Oil' },
+    desc: 'Box bambu anyaman dengan penutup mika transparan yang elegan. Sangat cocok untuk wadah hantaran, hampers, souvenir, atau kado pernikahan. Finishing bersih dan rapi.',
+    specs: { Material: 'Bambu Apus & Mika', Dimensi: '25x25 cm & 30x30 cm', Finishing: 'Natural Bleach' },
     tag: 'unggulan'
   },
   {
     id: 2,
-    name: 'Lampu Gantung Bambu',
-    category: 'dekorasi',
-    price: 185000,
-    image: 'images/lampu_bambu.png',
+    name: 'Rak Bambu',
+    category: 'perabot',
+    price: 150000,
+    image: 'images/Rak_Bambu.png',
     badge: 'Best Seller',
     rating: 4.8,
     reviews: 94,
-    desc: 'Lampu gantung bambu anyam dengan motif tradisional yang menghasilkan cahaya hangat dan dramatis. Ideal sebagai centerpiece ruang tamu atau restoran. Tersedia dalam 3 ukuran.',
-    specs: { Material: 'Bambu Apus', Dimensi: 'Ø30x40 cm', Kabel: '150 cm', Bohlam: 'E27 (Tidak termasuk)' },
+    desc: 'Rak bambu serbaguna dengan konstruksi yang kokoh dan estetika natural. Cocok untuk menaruh tanaman hias, dekorasi ruangan, buku, atau pernak-pernik rumah tangga.',
+    specs: { Material: 'Bambu Wulung & Petung', Dimensi: '40x30x70 cm', Finishing: 'Natural Glossy Varnish' },
     tag: 'unggulan'
   },
   {
     id: 3,
-    name: 'Keranjang Bambu Anyam',
-    category: 'dekorasi',
-    price: 75000,
-    image: 'images/keranjang_bambu.png',
+    name: 'Rantang Kotak',
+    category: 'peralatan',
+    price: 25000,
+    image: 'images/Rantang_Kotak.png',
     badge: 'New',
     rating: 4.7,
     reviews: 67,
-    desc: 'Keranjang bambu anyaman tradisional yang kuat dan serbaguna. Cocok untuk menyimpan buah, sayuran, atau barang-barang kecil. Tersedia dalam berbagai ukuran S, M, dan L.',
-    specs: { Material: 'Bambu Wulung', Dimensi: 'Ø25x20 cm (M)', Berat: '0.4 kg', Finishing: 'Natural Varnish' },
+    desc: 'Rantang anyaman bambu berbentuk kotak tradisional yang fungsional dan estetis. Pilihan ramah lingkungan untuk wadah katering, berkat makanan, atau penyimpanan serbaguna.',
+    specs: { Material: 'Bambu Wulung', Dimensi: '20x20x15 cm', Finishing: 'Natural Raw' },
     tag: 'terbaru'
   },
   {
     id: 4,
-    name: 'Nampan Bambu Persegi',
-    category: 'dekorasi',
-    price: 60000,
-    image: 'images/nampan_bambu.png',
-    badge: null,
-    rating: 4.6,
-    reviews: 43,
-    desc: 'Nampan bambu persegi dengan tepian tinggi yang elegan. Cocok untuk menyajikan makanan dan minuman, atau sebagai dekorasi meja. Mudah dibersihkan dan tahan lama.',
-    specs: { Material: 'Bambu Apus', Dimensi: '40x30x5 cm', Berat: '0.3 kg', Finishing: 'Food-safe Lacquer' },
-    tag: 'termurah'
-  },
-  {
-    id: 5,
-    name: 'Meja Bambu Minimalis',
-    category: 'perabot',
-    price: 520000,
-    image: 'images/meja_bambu.png',
-    badge: null,
+    name: 'Rantang Kotak Truntum',
+    category: 'peralatan',
+    price: 30000,
+    image: 'images/Rantang_Kotak_Truntum.png',
+    badge: 'New',
     rating: 4.8,
-    reviews: 52,
-    desc: 'Meja bambu dengan desain minimalis dan rak penyimpanan di bawahnya. Sempurna untuk ruang tamu, teras, atau sudut baca. Material bambu solid yang kuat dan tahan lama.',
-    specs: { Material: 'Bambu Petung', Dimensi: '60x40x55 cm', Berat: '6 kg', Finishing: 'Walnut Stain' },
+    reviews: 43,
+    desc: 'Rantang kotak anyaman dengan motif batik Truntum yang sangat menawan. Memiliki nilai seni tinggi, cocok untuk hantaran istimewa atau hampers hari raya.',
+    specs: { Material: 'Bambu Apus Pilihan', Dimensi: '22x22x15 cm', Finishing: 'Natural Motif' },
     tag: 'unggulan'
   },
   {
-    id: 6,
-    name: 'Hiasan Dinding Bambu',
-    category: 'dekorasi',
-    price: 120000,
-    image: 'images/hiasan_dinding.png',
-    badge: 'New',
-    rating: 4.9,
-    reviews: 38,
-    desc: 'Panel hiasan dinding dengan anyaman bambu motif geometris tradisional. Hadirkan nuansa boho-chic dan natural ke dalam rumah Anda. Ringan, mudah dipasang, dan tahan lama.',
-    specs: { Material: 'Bambu Wulung', Dimensi: '50x50 cm', Berat: '0.8 kg', Warna: 'Natural Brown' },
+    id: 5,
+    name: 'Rantang Kotak 2 Susun',
+    category: 'peralatan',
+    price: 50000,
+    image: 'images/RantangKotak_2_Susun.png',
+    badge: null,
+    rating: 4.7,
+    reviews: 52,
+    desc: 'Rantang anyaman bambu model tingkat dua susun dengan pegangan yang kokoh. Kapasitas lebih besar untuk membawa makanan porsi dobel atau paket hampers yang lengkap.',
+    specs: { Material: 'Bambu Wulung Kuat', Dimensi: '20x20x28 cm', Finishing: 'Natural Fine Sanded' },
     tag: 'terbaru'
   },
   {
-    id: 7,
-    name: 'Set Keranjang Bumbu',
-    category: 'dekorasi',
-    price: 85000,
-    image: 'images/keranjang_bambu.png',
+    id: 6,
+    name: 'Tas Jinjing',
+    category: 'aksesoris',
+    price: 25000,
+    image: 'images/Tas_Jinjing.png',
     badge: null,
-    rating: 4.5,
-    reviews: 29,
-    desc: 'Set 3 keranjang bumbu berbahan bambu untuk dapur Anda. Tersedia dalam ukuran kecil, sedang, dan besar. Sangat fungsional dan estetis, cocok untuk dapur bergaya rustic.',
-    specs: { Material: 'Bambu Apus', Isi: '3 buah (S,M,L)', Berat: '0.6 kg', Finishing: 'Natural' },
+    rating: 4.6,
+    reviews: 38,
+    desc: 'Tas jinjing anyaman bambu dengan pegangan yang fleksibel dan modis. Ideal digunakan untuk belanja ramah lingkungan, piknik, atau sebagai kemasan souvenir acara adat.',
+    specs: { Material: 'Bambu Tali / Apus', Dimensi: '30x12x25 cm', Finishing: 'Natural Lacquer' },
     tag: 'termurah'
   },
   {
-    id: 8,
-    name: 'Rak Bambu 3 Susun',
-    category: 'perabot',
-    price: 430000,
-    image: 'images/meja_bambu.png',
-    badge: 'Terlaris',
-    rating: 4.7,
-    reviews: 71,
-    desc: 'Rak bambu 3 tingkat yang kokoh dan stylish. Cocok untuk menyimpan tanaman, buku, dekorasi, atau perlengkapan dapur. Desain ramping yang tidak memakan banyak tempat.',
-    specs: { Material: 'Bambu Petung', Dimensi: '40x30x90 cm', Berat: '5.5 kg', Finishing: 'Natural Oil' },
-    tag: 'terlaris'
+    id: 7,
+    name: 'Sokase Jinjing',
+    category: 'aksesoris',
+    price: 30000,
+    image: 'images/Sokase_jinjing.png',
+    badge: null,
+    rating: 4.8,
+    reviews: 45,
+    desc: 'Sokase jinjing anyaman bambu yang cantik dan fungsional. Dilengkapi dengan tali jinjing yang kuat, sangat pas untuk wadah hantaran, hampers, atau wadah barang pribadi Anda.',
+    specs: { Material: 'Bambu Apus Pilihan', Dimensi: '22x22x20 cm', Finishing: 'Natural Bleach' },
+    tag: 'unggulan'
   }
 ];
 
@@ -305,7 +292,7 @@ function orderViaWA(e, id) {
   const msg = encodeURIComponent(
     `Halo BambuRara! 😊\n\nSaya ingin memesan:\n*${p.name}*\nHarga: ${formatPrice(p.price)}\n\nMohon info ketersediaan dan cara pemesanannya. Terima kasih!`
   );
-  window.open(`https://wa.me/6285213168134?text=${msg}`, '_blank');
+  window.open(`https://wa.me/6282221367185?text=${msg}`, '_blank');
 }
 
 // ---- Modal ----
@@ -338,7 +325,7 @@ function openModal(idOrEvent, maybeId) {
   const actionsEl = document.getElementById('modalActions');
   const msg = encodeURIComponent(`Halo BambuRara! Saya ingin memesan *${p.name}* (${formatPrice(p.price)}). Apakah tersedia?`);
   actionsEl.innerHTML = `
-    <a href="https://wa.me/6285213168134?text=${msg}" target="_blank" class="btn btn-wa" style="flex:1;justify-content:center;">
+    <a href="https://wa.me/6282221367185?text=${msg}" target="_blank" class="btn btn-wa" style="flex:1;justify-content:center;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
       Pesan via WhatsApp
     </a>
@@ -511,6 +498,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add floating bamboo leaves to hero
   createHeroLeaves();
   
+  // Initialize Infinite Scroll (Loop) Gallery (must run before parallax)
+  initInfiniteScrollGallery();
+
   // Initialize Parallax Scroll Gallery
   initParallaxGallery();
   
@@ -539,42 +529,59 @@ function createHeroLeaves() {
 // ---- Parallax Horizontal Scroll Gallery ----
 function initParallaxGallery() {
   const container = document.getElementById('galleryScroll');
+  if (!container) return;
   const cards = document.querySelectorAll('.gallery-card');
-  if (!container || !cards.length) return;
+  if (!cards.length) return;
+
+  let containerWidth = container.clientWidth;
+  let cardMetrics = [];
+
+  function cacheMetrics() {
+    containerWidth = container.clientWidth;
+    cardMetrics = Array.from(cards).map(card => {
+      return {
+        element: card,
+        offsetLeft: card.offsetLeft,
+        width: card.offsetWidth,
+        img: card.querySelector('img'),
+        info: card.querySelector('.gallery-info')
+      };
+    });
+  }
+
+  // Cache metrics immediately
+  cacheMetrics();
 
   function updateParallax() {
-    const center = window.innerWidth / 2;
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardCenter = rect.left + card.offsetWidth / 2;
-      
-      // Calculate normalized distance from screen center (-1 to 1)
-      const distFromCenter = cardCenter - center;
-      const normalizedDist = Math.max(-1, Math.min(1, distFromCenter / (window.innerWidth / 1.3)));
-      
+    const scrollLeft = container.scrollLeft;
+    const center = containerWidth / 2;
+
+    cardMetrics.forEach(metric => {
+      const cardCenter = metric.offsetLeft + metric.width / 2;
+      const distFromCenter = cardCenter - scrollLeft - center;
+      const normalizedDist = Math.max(-1, Math.min(1, distFromCenter / (containerWidth / 1.3)));
+
       // 1. Image parallax shift
       const offset = distFromCenter * -0.18;
-      const img = card.querySelector('img');
-      if (img) {
-        img.style.setProperty('--px', `${offset}px`);
+      if (metric.img) {
+        metric.img.style.setProperty('--px', `${offset}px`);
       }
-      
+
       // 2. Card Scale & Rotation (3D Tilt)
-      const scale = 1 - Math.abs(normalizedDist) * 0.08; // 1.0 at center, 0.92 at edges
-      const rotateY = normalizedDist * -10; // slight 3D rotation facing center
-      card.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
-      
+      const scale = 1 - Math.abs(normalizedDist) * 0.08;
+      const rotateY = normalizedDist * -10;
+      metric.element.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
+
       // 3. Dynamic Card Shadow Depth
       const shadowOpacity = 0.06 + (1 - Math.abs(normalizedDist)) * 0.12;
-      card.style.boxShadow = `0 20px 48px rgba(74, 62, 42, ${shadowOpacity})`;
-      
+      metric.element.style.boxShadow = `0 20px 48px rgba(74, 62, 42, ${shadowOpacity})`;
+
       // 4. Card Info overlay text fade & slide
-      const info = card.querySelector('.gallery-info');
-      if (info) {
+      if (metric.info) {
         const infoTranslate = Math.abs(normalizedDist) * 16;
         const infoOpacity = 1 - Math.abs(normalizedDist) * 0.35;
-        info.style.transform = `translateY(${infoTranslate}px)`;
-        info.style.opacity = infoOpacity;
+        metric.info.style.transform = `translateY(${infoTranslate}px)`;
+        metric.info.style.opacity = infoOpacity;
       }
     });
   }
@@ -591,10 +598,85 @@ function initParallaxGallery() {
     }
   });
 
-  window.addEventListener('resize', updateParallax);
-  
+  window.addEventListener('resize', () => {
+    cacheMetrics();
+    updateParallax();
+  });
+
   // Initial run
   updateParallax();
+}
+
+// ---- Infinite Scroll (Loop) for Gallery ----
+function initInfiniteScrollGallery() {
+  const container = document.getElementById('galleryScroll');
+  if (!container) return;
+
+  const originalCards = Array.from(container.children);
+  const cardCount = originalCards.length;
+  if (cardCount === 0) return;
+
+  // Clone items and prepend/append them to form [CloneStarts, Originals, CloneEnds]
+  // Prepend clones
+  originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.add('clone-start');
+    container.insertBefore(clone, container.firstChild);
+  });
+
+  // Append clones
+  originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.classList.add('clone-end');
+    container.appendChild(clone);
+  });
+
+  // Calculate full width of one set of cards (including gaps)
+  function calculateSetWidth() {
+    const firstOriginal = container.querySelector('.gallery-card:not(.clone-start):not(.clone-end)');
+    if (!firstOriginal) return 0;
+    const nextOriginal = firstOriginal.nextElementSibling;
+    if (!nextOriginal) return cardCount * firstOriginal.offsetWidth;
+    
+    // Step width = card offsetLeft difference (guarantees pixel perfect gap detection)
+    const stepWidth = nextOriginal.offsetLeft - firstOriginal.offsetLeft;
+    return cardCount * stepWidth;
+  }
+
+  let setWidth = calculateSetWidth();
+  container.infiniteSetWidth = setWidth; // Store on DOM object for drag scroll reference
+
+  // Initial scroll position: start of original cards (middle section)
+  container.scrollLeft = setWidth;
+
+  // Recalculate setWidth on window resize
+  window.addEventListener('resize', () => {
+    setWidth = calculateSetWidth();
+    container.infiniteSetWidth = setWidth;
+  });
+
+  // Wrap-around scroll listener (instant, synchronous jump)
+  container.addEventListener('scroll', () => {
+    const currentScroll = container.scrollLeft;
+
+    // Left boundary: we entered the start clones
+    if (currentScroll < setWidth) {
+      container.scrollLeft = currentScroll + setWidth;
+      
+      // If user is currently dragging, adjust drag starting point to match new scroll position
+      if (container.isDragging) {
+        container.dragStartScrollLeft += setWidth;
+      }
+    }
+    // Right boundary: we entered the end clones
+    else if (currentScroll >= 2 * setWidth) {
+      container.scrollLeft = currentScroll - setWidth;
+      
+      if (container.isDragging) {
+        container.dragStartScrollLeft -= setWidth;
+      }
+    }
+  });
 }
 
 // ---- Drag Scroll & Button Scroll for Gallery ----
@@ -603,8 +685,6 @@ function initDragScroll() {
   if (!slider) return;
 
   let isDown = false;
-  let startX;
-  let scrollLeft;
   let velX = 0;
   let momentumID;
 
@@ -620,8 +700,12 @@ function initDragScroll() {
     isDown = true;
     slider.style.cursor = 'grabbing';
     slider.style.userSelect = 'none';
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
+    
+    // Save to DOM object so it can be adjusted on infinite wrap-around
+    slider.dragStartX = e.pageX - slider.offsetLeft;
+    slider.dragStartScrollLeft = slider.scrollLeft;
+    slider.isDragging = true;
+    
     cancelAnimationFrame(momentumID);
     disableSnap();
   });
@@ -631,25 +715,41 @@ function initDragScroll() {
       isDown = false;
       slider.style.cursor = 'grab';
       slider.style.userSelect = 'auto';
+      slider.isDragging = false;
       beginMomentum();
     }
   });
 
   slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.style.cursor = 'grab';
-    slider.style.userSelect = 'auto';
-    beginMomentum();
+    if (isDown) {
+      isDown = false;
+      slider.style.cursor = 'grab';
+      slider.style.userSelect = 'auto';
+      slider.isDragging = false;
+      beginMomentum();
+    }
   });
 
   slider.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
+    
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5; // drag speed multiplier
+    const walk = (x - slider.dragStartX) * 1.5; // drag speed multiplier
     const prevScrollLeft = slider.scrollLeft;
-    slider.scrollLeft = scrollLeft - walk;
-    velX = slider.scrollLeft - prevScrollLeft; // track drag velocity
+    slider.scrollLeft = slider.dragStartScrollLeft - walk;
+    
+    // Calculate raw difference
+    let diff = slider.scrollLeft - prevScrollLeft;
+    
+    // If wrap-around happened, adjust diff to avoid huge velocity jump
+    const setWidth = slider.infiniteSetWidth || 2408;
+    if (Math.abs(diff) > setWidth / 2) {
+      if (diff > 0) diff -= setWidth;
+      else diff += setWidth;
+    }
+    
+    velX = diff; // track drag velocity without snap jumps
   });
 
   // Inertia momentum loop

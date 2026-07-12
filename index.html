@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="BambuRara - Kerajinan Bambu berkualitas tinggi karya pengrajin lokal Desa BaturTuru, Gunung Kidul. Perabot dan dekorasi berbahan bambu alami. Pesan langsung via WhatsApp." />
-  <meta name="keywords" content="kerajinan bambu, UMKM bambu, perabot bambu, dekorasi bambu, keranjang bambu, kursi bambu, lampu bambu, handmade" />
+  <meta name="keywords" content="kerajinan bambu, UMKM bambu, perabot bambu, dekorasi bambu, keranjang bambu, handmade dan bisa request model product" />
   <meta name="author" content="BambuRara" />
   <meta property="og:title" content="BambuRara - Kerajinan Bambu Karya Tradisi, Sentuhan Modern" />
   <meta property="og:description" content="Produk berkualitas yang dibuat dari bahan alami untuk melengkapi kebutuhan rumah dan gaya hidup Anda." />
@@ -35,6 +35,7 @@
 <!-- Toast Notification -->
 <div class="toast" id="toast">
   <span class="toast-icon">✅</span>
+  <span id="toastMsg"></span>
 </div>
 
 <!-- Mobile Menu -->
@@ -152,75 +153,72 @@
   
   <div class="gallery-wrapper relative">
     <button class="gallery-nav-btn prev" onclick="scrollGallery(-1)" aria-label="Sebelumnya">‹</button>
-    <div id="galleryScroll" class="reveal flex overflow-x-auto snap-x snap-mandatory gap-6 px-4 sm:px-6 lg:px-8 pb-12 w-full mask-edge-fading" style="scroll-behavior: smooth; outline: none;">
+    <div id="galleryScroll" class="reveal flex overflow-x-auto snap-x snap-mandatory gap-6 px-4 sm:px-6 lg:px-8 pb-12 w-full mask-edge-fading" style="outline: none;">
       <!-- Gallery Card 1 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/BoxTutup_Mika.png" alt="Kursi Bambu Minimalis di teras rumah" loading="lazy" />
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(1)">
+        <img src="images/BoxTutup_Mika.png" alt="Box Tutup Mika BambuRara" loading="lazy" />
         <div class="gallery-info">
           <h3>Box Tutup Mika</h3>
-          <p>25x25=30.000
-30×30=35.000</p>
+          <p>Mulai dari Rp30.000</p>
         </div>
       </div>
       
       <!-- Gallery Card 2 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/Rak_bambu.png" alt="Lampu Gantung Bambu menghasilkan bayangan hangat" loading="lazy" />
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(2)">
+        <img src="images/Rak_Bambu.png" alt="Rak Bambu Serbaguna" loading="lazy" />
         <div class="gallery-info">
           <h3>Rak Bambu</h3>
-          <p>25x25=30.000
-30×30=35.000</p>
+          <p>Mulai dari Rp40.000</p>
         </div>
       </div>
       
       <!-- Gallery Card 3 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/BoxTutup_Mika.png" alt="Hiasan Dinding anyaman bambu geometris" loading="lazy" />
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(3)">
+        <img src="images/Rantang_Kotak.png" alt="Rantang Kotak Anyaman Bambu" loading="lazy" />
         <div class="gallery-info">
-          <h3>Box Tutup Mika</h3>
-          <p>Start form 30.000</p>
+          <h3>Rantang Kotak</h3>
+          <p>Mulai dari Rp25.000</p>
         </div>
       </div>
       
       <!-- Gallery Card 4 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/Rak_Bambu.png" alt="Meja kopi bambu solid dengan dekorasi tanaman" loading="lazy" />
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(4)">
+        <img src="images/Rantang_Kotak_Truntum.png" alt="Rantang Kotak Motif Truntum" loading="lazy" />
         <div class="gallery-info">
-          <h3>Rak Bambu</h3>
-          <p>Start form 25.000</p>
+          <h3>Rantang Kotak Truntum</h3>
+          <p>Mulai dari Rp35.000</p>
         </div>
       </div>
       
       <!-- Gallery Card 5 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/Rantang_Kotak_Truntum.png" alt="Keranjang buah anyaman bambu rapi" loading="lazy" />
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(5)">
+        <img src="images/RantangKotak_2_Susun.png" alt="Rantang Kotak Dua Susun" loading="lazy" />
         <div class="gallery-info">
-          <h3>Rantang Kotak Truntum</h3>
-          <p>Start form 25.000</p>
+          <h3>Rantang Kotak 2 Susun</h3>
+          <p>Mulai dari Rp45.000</p>
         </div>
       </div>
       
-            <!-- Gallery Card 6 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/RantangKotak_2_Susun.png" alt="Keranjang buah anyaman bambu rapi" loading="lazy" />
+      <!-- Gallery Card 6 -->
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(6)">
+        <img src="images/Tas_Jinjing.png" alt="Tas Jinjing Anyaman Bambu" loading="lazy" />
         <div class="gallery-info">
-          <h3>Rantang Kotak Truntum</h3>
-          <p>Start form 25.000</p>
+          <h3>Tas Jinjing</h3>
+          <p>Mulai dari Rp25.000</p>
         </div>
       </div>
-      
+
       <!-- Gallery Card 7 -->
-      <div class="gallery-card snap-center shrink-0">
-        <img src="images/Tas_Jinjing.png" alt="Nampan saji bambu menyajikan sarapan hangat" loading="lazy" />
+      <div class="gallery-card snap-center shrink-0" onclick="openModal(7)">
+        <img src="images/Sokase_jinjing.png" alt="Tas Jinjing Anyaman Bambu" loading="lazy" />
         <div class="gallery-info">
-          <h3>Tas_Jinjing</h3>
-          <p>Start form 25.000,</p>
+          <h3>Sokase Jinjing</h3>
+          <p>Mulai dari Rp30.000</p>
         </div>
       </div>
     </div>
     <button class="gallery-nav-btn next" onclick="scrollGallery(1)" aria-label="Selanjutnya">›</button>
   </div>
-  
 </section>
 
 <!-- ================================================
@@ -255,19 +253,15 @@
             </div>
           </a>
           <a href="https://maps.app.goo.gl/TDAi3PVRYm9EtQLdA?g_st=ic" target="_blank" class="contact-card" id="contact-loc">
-            <div class="contact-card-icon loc">📍</div>
+            <div class="contact-card-icon loc">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
             <div>
               <div class="contact-card-label">Lokasi Toko</div>
               <div class="contact-card-value">Desa BaturTuru, Gunung Kidul, D.I. Yogyakarta</div>
             </div>
           </a>
-          <a href="mailto:info@BambuRara.com" class="contact-card" id="contact-mail">
-            <div class="contact-card-icon mail">✉️</div>
-            <div>
-              <div class="contact-card-label">Email</div>
-              <div class="contact-card-value">info@BambuRara.com</div>
-            </div>
-          </a>
+
         </div>
         <div style="margin-top:24px;padding:18px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:var(--radius-md);color:white;">
           <div style="font-weight:600;margin-bottom:6px;">⏰ Jam Operasional</div>
@@ -331,14 +325,18 @@
           <a href="https://tiktok.com/@BambuRara" target="_blank" class="social-btn" title="TikTok">🎵</a>
           <a href="https://shopee.co.id/BambuRara" target="_blank" class="social-btn" title="Shopee">🛒</a>
         </div>
-        <div style="margin-top:20px;">
+        <div style="margin-top:20px;text-align:center;">
           <p style="font-size:0.8rem;margin-bottom:10px;">Tersedia di:</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
             <a href="https://shopee.co.id/pBambuRara" target="_blank" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:6px 12px;font-size:0.75rem;color:rgba(255,255,255,0.7);transition:all 0.3s;">🛒 Shopee</a>
-            <a href="https://tokopedia.com/BambuRara" target="_blank" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:6px 12px;font-size:0.75rem;color:rgba(255,255,255,0.7);transition:all 0.3s;">🏪 Tokopedia</a>
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <span>© 2026 BambuRara. Hak Cipta Dilindungi. Dibuat dengan ❤️ untuk UMKM Desa BaturTuru.</span>
+      <span>🌿 100% Kerajinan Bambu Alami</span>
     </div>
   </div>
 </footer>
